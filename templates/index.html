@@ -1,0 +1,27 @@
+{% extends "base_template.html" %}
+{% block title %}
+    <title>Django - Projeto Final</title>
+{% endblock %}
+
+{% block menu %}
+            <!-- menu -->
+            <div class="collapse navbar-collapse" id="mynavbar">               
+                <div class="navbar-nav text-start">
+                    <a href="./pe_confortavel.html" class="nav-link"><img src=".\static\img\ico_inicio.png" width="100"></a>
+                    <a href="./produtos/cadastroProduto.html" class="nav-link"><img src=".\static\img\ico_produto.png" width="100"></a>
+                    <a href="./clientes/cadastroCliente.html" class="nav-link"><img src=".\static\img\ico_clientes.png" width="100"></a>
+                    <a href="./fornecedores/cadastroFornecedor.html" class="nav-link"><img src=".\static\img\ico_fornecedor.png" width="100"></a>
+                    <a href="./venda/cadastroVenda.html" class="nav-link"><img src=".\static\img\ico_venda.png" width="100"></a>
+                    <a href="./contato/contato.html" class="nav-link"><img src=".\static\img\ico_contato.png" width="100"></a>
+                </div>                        
+            </div>
+{% endblock %}      
+
+{% block titulo_pagina %}
+        <div class="container text-center">
+            <div class="jumbotron mt-5">
+                <h1 class="display-4">Pé Confortável</h1>
+            </div>
+        </div>
+{% endblock %}
+   
