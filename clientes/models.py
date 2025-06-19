@@ -18,5 +18,4 @@ class Clientes(models.Model):
 
 
 def __str__(self):
-    return f'{self.cpf} - {self.nome} - {self.endereco} - {self.telefone} - {self.estado} - {self.cidade} - {self.genero} - 
-    {self.contato} - {self.email_cliente} - {self.nome_usuario} - {self.senha}'
+    return f'{self.cpf} - {self.nome} - {self.endereco} - {self.telefone} - {self.estado} - {self.cidade} - {self.genero} - {self.contato} - {self.email_cliente} - {self.nome_usuario} - {self.senha}'

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-class Vendas(models.Model):
+class Venda(models.Model):
     codigo = models.CharField(help_text='Digite o código')
     nome = models.CharField(max_length=60, help_text='Digite o Nome do Aluno')
     preco_compra = models.CharField(help_text='Digite o preço de compra')
