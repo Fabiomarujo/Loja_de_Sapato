@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from produto.forms import ProdutoForm, ProdutoAtualizarForm
-from produto.models import Produto
+from produtos.forms import ProdutoForm, ProdutoAtualizarForm
+from produtos.models import Produtos
 
 def listar(request):
-    listar_produto = Produto.objects.all()
+    listar_produto = Produtos.objects.all()
     contexto = {
         'produto': listar_produto,
     }
@@ -16,7 +16,7 @@ def cadastrar(request):
     form = ProdutoForm(request.POST)
     if form.is_valid():
         dados_produto = form.cleaned_data       
-        produto = Produto(
+        produto = Produtos(
             codigo=dados_produto['codigo'],
             nome=dados_produto['nome'],
             preco_compra=dados_produto['preco_compra'],
@@ -30,19 +30,19 @@ def cadastrar(request):
     return render(request, 'produtos/cadastroProduto.html')
 
 def excluir(request):
-    produto = Produto.objects.get()
+    produtos = Produtos.objects.get()
 
-    produto.delete()
-    return redirect('produto:listar')
+    produtos.delete()
+    return redirect('produtos:listar')
 
 # Carregar produto para ATUALIZAR
 def carregar_produto(request):
     # obter produtor baseado no codigo informado
-    produto = Produto.objects.get()
+    produto = Produtos.objects.get()
     contexto ={
         'produto':produto,
     }
-    return render(request, 'produto/atualizarProduto.html', context=contexto)
+    return render(request, 'templates/produtos/atualizarProduto.html', context=contexto)
 
 # Atualizar a base de dados 
 def atualizar(request):

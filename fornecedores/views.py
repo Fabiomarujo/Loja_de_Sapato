@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from fornecedor.forms import FornecedorForm, FornecedorAtualizarForm
-from fornecedor.models import Fornecedor
+from fornecedores.forms import FornecedorForm, FornecedorAtualizarForm
+from fornecedores.models import Fornecedor
 
 def listar(request):
     listar_fornecedor = Fornecedor.objects.all()

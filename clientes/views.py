@@ -45,7 +45,7 @@ def carregar_clientes(request):
     contexto ={
         'clientes':clientes,
     }
-    return render(request, 'clientes/atualizarClientes.html', context=contexto)
+    return render(request, 'templates/clientes/atualizarClientes.html', context=contexto)
 
 # Atualizar a base de dados
 def atualizar(request):

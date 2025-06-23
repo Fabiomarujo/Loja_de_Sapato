@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'clientes.apps.ClientesConfig',
     'contato.apps.ContatoConfig',
     'fornecedores.apps.FornecedoresConfig',
-    'login.apps.LoginConfig',
+    # 'login.apps.LoginConfig',
     'produtos.apps.ProdutosConfig',
     'venda.apps.VendaConfig',
 ]

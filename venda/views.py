@@ -26,7 +26,7 @@ def cadastrar(request):
             preco_venda=dados_venda['preco_venda']            
         )
         venda.save()
-    return render(request, 'venda/cadastroVenda.html')
+    return render(request, 'templates/venda/cadastroVenda.html')
 
 def excluir(request):
     venda = Venda.objects.get()
