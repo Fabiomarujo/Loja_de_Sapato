@@ -21,11 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
 SECRET_KEY = 'django-insecure-s1p@rsp@1er_mm=0k^a#*pue%3tipt8_ts_4(018eo)dg^(1_3'
-=======
-SECRET_KEY = 'django-insecure-6a6jyaz=o3s*2xki^geo%qd(nrr(_l7!6x71&w@j1mufj3yjhn'
->>>>>>> 8c53cf52987d34afb9ae9d704f6731c5f82cafa4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,21 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'clientes.apps.ClientesConfig',
     'contato.apps.ContatoConfig',
     'fornecedores.apps.FornecedoresConfig',
     'login.apps.LoginConfig',
     'produtos.apps.ProdutosConfig',
     'venda.apps.VendaConfig',
-=======
-    'clientes.apps.ClientesConfig',
-    'contato.apps.ContatoConfig',
-    'fornecedores.apps.FornecedoresConfig',
-    'login.apps.LoginConfig',
-    'produtos.apps.ProdutosConfig',
-    'venda.apps.VendaConfig',
->>>>>>> 8c53cf52987d34afb9ae9d704f6731c5f82cafa4
 ]
 
 MIDDLEWARE = [
@@ -126,11 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-BR'
 
-<<<<<<< HEAD
 TIME_ZONE = 'America/Sao_Paulo'
-=======
-TIME_ZONE = 'UTC'
->>>>>>> 8c53cf52987d34afb9ae9d704f6731c5f82cafa4
 
 USE_I18N = True
 
@@ -150,8 +133,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 8c53cf52987d34afb9ae9d704f6731c5f82cafa4

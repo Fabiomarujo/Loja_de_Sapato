@@ -15,7 +15,7 @@ class ClientesForm(forms.Form):
     senha = forms.CharField(max_length=256, help_text='Informe a senha')
     
 class ClientesAtualizarForm(forms.Form):
-    id = forms.IntgerField(required=True, help_text='Identificação do Cliente')
+    id = forms.IntegerField(required=True, help_text='Identificação do Cliente')
     cpf = forms.CharField(max_length=11, help_text='Digite o CPF')
     nome = forms.CharField(max_length=70, help_text='Digite o Nome do Aluno')
     endereco = forms.CharField(max_length=100, help_text='Digite o endereço')
