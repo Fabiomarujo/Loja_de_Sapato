@@ -8,7 +8,7 @@
     <!-- define e insere um favicon no documento HTML -->
     <link href="./img/python.ico" rel="shortcut icon">
 
-    <title>Django - Exercícios</title>
+    <title>Django - Projeto Final</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     
@@ -16,15 +16,11 @@
     <link href="../css/meu-estilo.css" rel="stylesheet">
 </head>
 <body>
-    <header class="container px-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
-
-            <!-- logo -->
-            <div>
-                <a class="navbar-brand mx-auto">
-                    <img src="../img/python_64.png">
-                </a>
-            </div>
+    <header class="px-0">
+        <div>
+            <img src="../../../static/img/logo.png" class="img-fluid" width="100%">
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light px-0 fundo">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynavbar"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Navegação Alternativa">
@@ -32,32 +28,64 @@
             </button>
 
             <!-- menu -->
-            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-                <div class="navbar-nav">
-                    <a href="../escola.html" class="nav-link">Início</a>
-                    <a href="#" class="nav-link">Cadastrar</a>
-                    <a href="listarTitulos.html" class="nav-link">Listar</a>
-                </div>
+            <div class="collapse navbar-collapse" id="mynavbar">               
+                <div class="navbar-nav text-start">
+                    <a href="../../../pe_confortavel.html" class="nav-link"><img src="..\..\..\static\img\ico_inicio.png" width="100"></a>
+                    <a href="../../../produtos/templates/produtos/cadastroProduto.html" class="nav-link"><img src="..\..\..\static\img\ico_produto.png" width="100"></a>
+                    <a href="../../../clientes/templates/clientes/cadastroClientes.html" class="nav-link"><img src="..\..\..\static\img\ico_clientes.png" width="100"></a>
+                    <a href="../../../fornecedores/templates/fornecedores/cadastroFornecedor.html" class="nav-link"><img src="..\..\..\static\img\ico_fornecedor.png" width="100"></a>
+                    <a href="../../../venda/templates/venda/cadastroVenda.html" class="nav-link"><img src="..\..\..\static\img\ico_venda.png" width="100"></a>
+                    <a href="../../../venda/templates/venda/listarVenda.html" class="nav-link"><img src="..\..\..\static\img\ico_listar.png" width="100"></a>
+                    <a href="../../../contato/templates/contato/contato.html" class="nav-link"><img src="..\..\..\static\img\ico_contato.png" width="100"></a>
+                </div>                        
             </div>
-        </nav>
+        </nav><hr class="hr">
         <div class="container text-center border-bottom border-primary text-center bg-light">    
             <div class="row mt-5">
                 <div class="col">
-                    <h1>Cadastro de Títulos</h1>
+                    <h1>Cadastro de Venda</h1>
                 </div>  
             </div>
         </div>
     </header>
 
     <main class="container m-2 w-75 mx-auto">
-        <form action="#" method="POST" name="frmCadastrarTitulo" id="idFrmCadastrarTiposAtividade">
+        <form action="formCadastrarVenda" method="POST" name="formCadastrarVenda" id="idFormCadastrarVenda">
             <div class="form-group">
-                <label for='idDescricao'>Descrição</label>
-                <input class="form-control" type='text' id='idDescricao' name='descricao' placeholder='Informe a descrição' required>
+                <label for='idNumero'>Número</label>
+                <input class="form-control" type='text' id='idNumero' name='numero' placeholder='Informe o número' required>
+            </div>
+            <div class="form-group">
+                <label for='idDVenda'>Data da Venda</label>
+                <input class="form-control" type='date' id='idDvenda' name='data_venda' placeholder='Data da Venda' required>
+            </div>
+            <div class="form-group">
+                <label for='idVvenda'>Valor da venda</label>
+                <input class="form-control" type='number' id='idVvenda' name='valor_venda' placeholder='Informe o valor da venda' required>
+            </div>
+            <div class="form-group">
+                <label for='idCcpf'>CPF do Cliente</label>
+                <input class="form-control" type='text' id='idCcpf' name='cliente_cpf' placeholder='Número do CPF do cliente' required>
+            </div>
+            <div class="form-group">
+                <label for='idVnumero'>Número da venda</label>
+                <input class="form-control" type='number' id='idVnumero' name='venda_numero' placeholder='Número da venda' required>
+            </div>
+            <div class="form-group">
+                <label for='idPcodigo'>Código do produto</label>
+                <input class="form-control" type='number' id='idPcodigo' name='produto_codigo' placeholder='Código do produto' required>
+            </div>
+            <div class="form-group">
+                <label for='idQt'>Quantidade</label>
+                <input class="form-control" type='number' id='idQt' name='quantidade' placeholder='Informe a quantidade' required>
+            </div>
+            <div class="form-group">
+                <label for='idPvenda'>Preço de venda</label>
+                <input class="form-control" type='number' id='idPvenda' name='preco_venda' placeholder='Preço de Venda' required>
             </div>
             <div class='form-group text-center'>
                 <input type='reset'  value='Limpar' class='btn btn-primary btn-md'>
-                <input type='submit' value='Cadastrar' class='btn btn-primary btn-md' id="btnCadastrarTiposAtividade">
+                <input type='submit' value='Cadastrar' class='btn btn-primary btn-md' id="btnCadastrarVenda">
             </div>
         </form>
     </main>
@@ -66,6 +94,10 @@
         <div class="row border-top border-primary bg-light">
             <div class="col font text-primary copyright">
                 <p>&copy; Copyright Pmg Web</p>
+                <p>Fábio Anderson Alves Gonçalves & João Victor Cozza Vilhegas Fonseca</p>
+                <p>E-mail: fabioandersonmarujo@gmail.com & joaovictorcozza19@gmail.com</p>
+                <p>Curso de Programação em Python, SENAC RJ - Unidade de Botafogo</p>
+                <p>Versão 1.0, Edição 2025</p>
             </div>
         </div>
     </footer>

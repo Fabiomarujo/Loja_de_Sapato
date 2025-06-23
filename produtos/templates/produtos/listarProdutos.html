@@ -16,22 +16,38 @@
     <!-- <script src="js/aula17.js" defer></script> -->
     <link href="../css/meu-estilo.css" rel="stylesheet">
 
+    <!-- Prepara o modal com os dados a ser excluido -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#modalExcluirProduto').on('show.bs.modal', function(event) {
+                var descricao = $(event.relatedTarget).data('descricao');
+                var urlExcluir = $(event.relatedTarget).data('url');
+                $("#mensagemExclusao").html("Tem certeza que deseja EXCLUIR - <b>"+ descricao +"</b>?");
+
+                $.fn.excluirProduto = function() {
+                    var url = $(event.relatedTarget).data('url');
+                    location.replace(url);
+                }
+            });
+        
+            $("#btnExcluir").on('click', function() {
+                $.fn.excluirProduto();
+                return false;
+            });            
+        });
+    </script>
+
 </head>
 
 <body>
 
     <!-- seu codigo comeca aqui -->
 
-    <header class="container px-0">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
-
-            <!-- logo -->
-            <div>
-                <a class="navbar-brand mx-auto">
-                    <img src="../img/python_64.png">
-                </a>
-            </div>
+    <header class="px-0">
+        <div>
+            <img src="../../../static/img/logo.png" class="img-fluid" width="100%">
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light px-0 fundo">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynavbar"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Navegação Alternativa">
@@ -39,24 +55,18 @@
             </button>
 
             <!-- menu -->
-            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-                <div class="navbar-nav">
-                    <a href="../escola.html" class="nav-link">Início</a>
-                    <a href="cadastroTiposAtividade.html" class="nav-link">Cadastrar</a>
-                    <a href="listarTiposAtividade.html" class="nav-link">Listar</a>
-                </div>
+            <div class="collapse navbar-collapse" id="mynavbar">               
+                <div class="navbar-nav text-start">
+                    <a href="../../../pe_confortavel.html" class="nav-link"><img src="..\..\..\static\img\ico_inicio.png" width="100"></a>
+                    <a href="../../../produtos/templates/produtos/cadastroProduto.html" class="nav-link"><img src="..\..\..\static\img\ico_produto.png" width="100"></a>
+                    <a href="../../../clientes/templates/clientes/cadastroClientes.html" class="nav-link"><img src="..\..\..\static\img\ico_clientes.png" width="100"></a>
+                    <a href="../../../fornecedores/templates/fornecedores/cadastroFornecedor.html" class="nav-link"><img src="..\..\..\static\img\ico_fornecedor.png" width="100"></a>
+                    <a href="../../../venda/templates/venda/cadastroVenda.html" class="nav-link"><img src="..\..\..\static\img\ico_venda.png" width="100"></a>
+                    <a href="../../../produtos/templates/produtos/listarProdutos.html" class="nav-link"><img src="..\..\..\static\img\ico_listar.png" width="100"></a>
+                    <a href="../../../contato/templates/contato/contato.html" class="nav-link"><img src="..\..\..\static\img\ico_contato.png" width="100"></a>
+                </div>                        
             </div>
-        </nav>
-
-        <!--
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                </div>
-            </div>
-        </div>
-    -->
+        </nav><hr class="hr">
 
     </header>
 
@@ -64,7 +74,7 @@
 
         <div class="row">
             <div class="col text-center m-0">
-                <h2 class="mt-2 mb-5 my-h2">Lista de Tipos de Atividade</h2>
+                <h2 class="mt-2 mb-5 my-h2">Lista de Produtos Cadastrados</h2>
             </div>
         </div>
 
@@ -88,37 +98,59 @@
                     <tr>
                         <!-- colunas cabecalho -->
                         <th>Código</th>
-                        <th>Descrição</th>
+                        <th>Nome</th>
+                        <th>Preço de comnpra</th>
+                        <th>Preço de venda</th>
+                        <th>Cor</th>
+                        <th>Tamanho</th>
+                        <th>Imagem</th>
+                        <th>Código do fabricante</th>
                     </tr>
                 </thead>
 
                 <!-- linhas -->
                 <tr>
                     <td> 1 </td>
-                    <td> Programador Web </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Técnico em Informática </td>
-                </tr>
-                <tr>
-                    <td> 3 </td>
-                    <td> Web Designer </td>
-                </tr>
-                <tr>
-                    <td> 4 </td>
-                    <td> Educação Física </td>
+                    <td> Sapato bico fino </td>
+                    <td> 15 </td>
+                    <td> 35 </td>
+                    <td> Marrom </td>
+                    <td> 42 </td>
+                    <td>  </td>
+                    <td>  </td>
                 </tr>
             </table>
 
         </div>
+          <!-- Modais -->
 
+        <div class="modal fade" id="modalExcluirProduto" role="dialog" aria-labelledby="Confirmação" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">        
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Confirmação</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="mensagemExclusao"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnExcluir">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="container text-center">
         <div class="row border-top border-primary bg-light">
             <div class="col font text-primary copyright">
                 <p>&copy; Copyright Pmg Web</p>
+                <p>Fábio Anderson Alves Gonçalves & João Victor Cozza Vilhegas Fonseca</p>
+                <p>E-mail: fabioandersonmarujo@gmail.com & joaovictorcozza19@gmail.com</p>
+                <p>Curso de Programação em Python, SENAC RJ - Unidade de Botafogo</p>
+                <p>Versão 1.0, Edição 2025</p>
             </div>
         </div>
     </footer>

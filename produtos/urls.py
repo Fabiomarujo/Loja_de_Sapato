@@ -4,6 +4,9 @@ from . import views
 app_name = 'produtos'
 
 urlpatterns = [
-    path('lista', views.listar, name="listar"),
-    path('cadastro', views.cadastrar, name="cadastrar"),
+    path('cadastrar/', views.cadastrar, name="cadastrar"),
+    path('listar/', views.listar, name="listar"),
+    path('excluir/', views.excluir, name="excluir_produto"),
+    path('carregar_produto/', views.carregar_produto, name="carregar_produto"),
+    path('atualizar_produto/', views.atualizar, name='atualizar_produto'),
 ]

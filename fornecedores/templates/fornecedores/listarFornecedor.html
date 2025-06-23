@@ -9,29 +9,45 @@
     <!-- define e insere um favicon no documento HTML -->
     <link href="./img/python.ico" rel="shortcut icon">
 
-    <title>Django - Exercícios</title>
+    <title>Django - Projeto Final</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
     <!-- <script src="js/aula17.js" defer></script> -->
     <link href="../css/meu-estilo.css" rel="stylesheet">
 
+    <!-- Prepara o modal com os dados a ser excluido -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#modalExcluirFornecedor').on('show.bs.modal', function(event) {
+                var descricao = $(event.relatedTarget).data('descricao');
+                var urlExcluir = $(event.relatedTarget).data('url');
+                $("#mensagemExclusao").html("Tem certeza que deseja EXCLUIR - <b>"+ descricao +"</b>?");
+
+                $.fn.excluirFornecedor = function() {
+                    var url = $(event.relatedTarget).data('url');
+                    location.replace(url);
+                }
+            });
+        
+            $("#btnExcluir").on('click', function() {
+                $.fn.excluirFornecedor();
+                return false;
+            });            
+        });
+    </script>
 </head>
 
 <body>
 
     <!-- seu codigo comeca aqui -->
 
-    <header class="container px-0">
+    <header class="px-0">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
-
-            <!-- logo -->
-            <div>
-                <a class="navbar-brand mx-auto">
-                    <img src="../img/python_64.png">
-                </a>
-            </div>
+        <div>
+            <img src="../../../static/img/logo.png" class="img-fluid" width="100%">
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light px-0 fundo">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynavbar"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Navegação Alternativa">
@@ -39,24 +55,18 @@
             </button>
 
             <!-- menu -->
-            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-                <div class="navbar-nav">
-                    <a href="../escola.html" class="nav-link">Início</a>
-                    <a href="cadastroInstrutor.html" class="nav-link">Cadastrar</a>
-                    <a href="listarInstrutores.html" class="nav-link">Listar</a>
-                </div>
+            <div class="collapse navbar-collapse" id="mynavbar">               
+                <div class="navbar-nav text-start">
+                    <a href="../../../pe_confortavel.html" class="nav-link"><img src="..\..\..\static\img\ico_inicio.png" width="100"></a>
+                    <a href="../../../produtos/templates/produtos/cadastroProduto.html" class="nav-link"><img src="..\..\..\static\img\ico_produto.png" width="100"></a>
+                    <a href="../../../clientes/templates/clientes/cadastroClientes.html" class="nav-link"><img src="..\..\..\static\img\ico_clientes.png" width="100"></a>
+                    <a href="../../../fornecedores/templates/fornecedores/cadastroFornecedor.html" class="nav-link"><img src="..\..\..\static\img\ico_fornecedor.png" width="100"></a>
+                    <a href="../../../venda/templates/venda/cadastroVenda.html" class="nav-link"><img src="..\..\..\static\img\ico_venda.png" width="100"></a>
+                    <a href="../../../fornecedores/templates/fornecedores/listarFornecedor.html" class="nav-link"><img src="..\..\..\static\img\ico_listar.png" width="100"></a>
+                    <a href="../../../contato/templates/contato/contato.html" class="nav-link"><img src="..\..\..\static\img\ico_contato.png" width="100"></a>
+                </div>                        
             </div>
-        </nav>
-
-        <!--
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                </div>
-            </div>
-        </div>
-    -->
+        </nav><hr class="hr">
 
     </header>
 
@@ -64,7 +74,7 @@
 
         <div class="row">
             <div class="col text-center m-0">
-                <h2 class="mt-2 mb-5 my-h2">Lista de Instrutores</h2>
+                <h2 class="mt-2 mb-5 my-h2">Lista de Fornecedores</h2>
             </div>
         </div>
 
@@ -87,47 +97,39 @@
                     <!-- linhas -->
                     <tr>
                         <!-- colunas cabecalho -->
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>RG</th>
-                        <th>Data Nascimento</th>
-                        <th>DDD</th>
-                        <th>Telefone</th>
-                        <th>Titularidade</th>
+                        <th>Codigo</th>
+                        <th>Nome</th>                       
                     </tr>
                 </thead>
 
                 <!-- linhas -->
                 <tr>
-                    <td> 1 </td>
+                    <td> 122332323 </td>
                     <td> Jefferson Gonçalves </td>
-                    <td> 099998888 </td>
-                    <td> 05/10/1978 </td>
-                    <td> 021 </td>
-                    <td> 897698512 </td>
-                    <td> Professor Doutor </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Maria Joaquina </td>
-                    <td> 125487966 </td>
-                    <td> 10/01/1987 </td>
-                    <td> 021 </td>
-                    <td> 12322211 </td>
-                    <td> Professor Doutor </td>
-                </tr>
-                <tr>
-                    <td> 3 </td>
-                    <td> Juliana Fergusson </td>
-                    <td> 874895692 </td>
-                    <td> 15/11/1968 </td>
-                    <td> 022 </td>
-                    <td> 87474774 </td>
-                    <td> Professor Sabe-Tudo </td>
-                </tr>
+                    
             </table>
 
         </div>
+        <!-- Modais -->
+
+        <div class="modal fade" id="modalExcluirFornecedor" role="dialog" aria-labelledby="Confirmação" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">        
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Confirmação</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="mensagemExclusao"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnExcluir">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </main>
 
@@ -135,6 +137,10 @@
         <div class="row border-top border-primary bg-light">
             <div class="col font text-primary copyright">
                 <p>&copy; Copyright Pmg Web</p>
+                <p>Fábio Anderson Alves Gonçalves & João Victor Cozza Vilhegas Fonseca</p>
+                <p>E-mail: fabioandersonmarujo@gmail.com & joaovictorcozza19@gmail.com</p>
+                <p>Curso de Programação em Python, SENAC RJ - Unidade de Botafogo</p>
+                <p>Versão 1.0, Edição 2025</p>
             </div>
         </div>
     </footer>

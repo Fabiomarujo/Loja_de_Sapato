@@ -28,16 +28,12 @@
     <!-- seu codigo comeca aqui -->
 
     <!-- container bootstrap -->
-    <header class="container px-0">
+    <header class="px-0">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-0">
-
-            <!-- logo -->
-            <div>
-                <a class="navbar-brand mx-auto">
-                    <img src="../img/python_64.png">
-                </a>
-            </div>
+        <div>
+            <img src="../../../static/img/logo.png" class="img-fluid" width="100%">
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light px-0 fundo">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynavbar"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Navegação Alternativa">
@@ -45,17 +41,18 @@
             </button>
 
             <!-- menu -->
-            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-                <div class="navbar-nav">
-                    <a href="../escola.html" class="nav-link">Início</a>
-                    <a href="../tipoatividade/cadastroTiposAtividade.html" class="nav-link">Tipos de Atividade</a>
-                    <a href="../titulo/cadastroTitulos.html" class="nav-link">Títulos</a>
-                    <a href="../aluno/cadastroAluno.html" class="nav-link">Alunos</a>
-                    <a href="../instrutor/cadastroInstrutor.html" class="nav-link">Instrutor</a>
-                    <a href="../turma/cadastroTurma.html" class="nav-link">Turmas</a>
-                </div>
+            <div class="collapse navbar-collapse" id="mynavbar">               
+                <div class="navbar-nav text-start">
+                    <a href="../../../pe_confortavel.html" class="nav-link"><img src="..\..\..\static\img\ico_inicio.png" width="100"></a>
+                    <a href="../../../produtos/templates/produtos/cadastroProduto.html" class="nav-link"><img src="..\..\..\static\img\ico_produto.png" width="100"></a>
+                    <a href="../../../clientes/templates/clientes/cadastroClientes.html" class="nav-link"><img src="..\..\..\static\img\ico_clientes.png" width="100"></a>
+                    <a href="../../../fornecedores/templates/fornecedores/cadastroFornecedor.html" class="nav-link"><img src="..\..\..\static\img\ico_fornecedor.png" width="100"></a>
+                    <a href="../../../venda/templates/venda/cadastroVenda.html" class="nav-link"><img src="..\..\..\static\img\ico_venda.png" width="100"></a>
+                    <a href="../../../contato/templates/contato/listarContato.html" class="nav-link"><img src="..\..\..\static\img\ico_listar.png" width="100"></a>
+                    <a href="../../../contato/templates/contato/contato.html" class="nav-link"><img src="..\..\..\static\img\ico_contato.png" width="100"></a>
+                </div>                        
             </div>
-        </nav>
+        </nav><hr class="hr">
     </header>
 
     <main class="container m-2 w-75 mx-auto minha-fonte">
@@ -66,7 +63,7 @@
             </div>                    
         </div>
 
-        <form name="frmContato" id="idFrmContato" action="#" method="POST" class="my-label-color-purple">
+        <form name="formContato" id="idFormContato" action="formContato" method="POST" class="my-label-color-purple">
 
             <div class="form-row mt-4">
                     <div class="form-group col-md-6">
@@ -140,6 +137,10 @@
         <div class="row border-top border-primary bg-light">
             <div class="col font text-primary copyright">
                 <p>&copy; Copyright Pmg Web</p>
+                <p>Fábio Anderson Alves Gonçalves & João Victor Cozza Vilhegas Fonseca</p>
+                <p>E-mail: fabioandersonmarujo@gmail.com & joaovictorcozza19@gmail.com</p>
+                <p>Curso de Programação em Python, SENAC RJ - Unidade de Botafogo</p>
+                <p>Versão 1.0, Edição 2025</p>
             </div>
         </div>
     </footer>
